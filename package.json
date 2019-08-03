@@ -1,0 +1,102 @@
+{
+  "name": "minimal-react-redux-ts",
+  "version": "1.0.0",
+  "description": "Minimal React/Redux boilerplate with TypeScript",
+  "homepage": "https://github.com/pratikgaloria/minimal-react-redux-ts",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p --progress --colors",
+    "start": "webpack-dev-server --mode development --hot --progress --color --port 8080 --open",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/tests"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "<rootDir>/coverage",
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/index.ts",
+      "!**/*d.{ts}",
+      "!**/styles.ts",
+      "!**/*.model.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/tests/",
+      "/src/App.tsx"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setup.ts"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|styl|less|sass|scss|svg)$": "identity-obj-proxy",
+      "^src(.*)$": "<rootDir>/src$1"
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.16",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.8.2",
+    "@types/react-dom": "^16.8.0",
+    "@types/react-redux": "^7.0.0",
+    "@types/redux-mock-store": "^1.0.1",
+    "@types/webpack": "^4.4.23",
+    "@types/webpack-env": "1.13.6",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.5",
+    "body-parser": "^1.19.0",
+    "clean-webpack-plugin": "^2.0.1",
+    "coveralls": "^3.0.5",
+    "css-loader": "^2.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "file-loader": "^3.0.1",
+    "html-loader": "^1.0.0-alpha.0",
+    "html-webpack-plugin": "^4.0.0-alpha",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.12.0",
+    "postcss": "^7.0.13",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.6.3",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-mock-store": "^1.5.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.16.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.3",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
+  }
+}

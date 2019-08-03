@@ -1,0 +1,14 @@
+.vscode
+.idea
+
+.DS_STORE
+
+node_modules
+build
+dist
+
+.module-cache
+*.log*
+
+coverage
+.coveralls.yml
