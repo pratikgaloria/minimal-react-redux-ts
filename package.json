@@ -5,13 +5,13 @@
   "homepage": "https://github.com/pratikgaloria/minimal-react-redux-ts",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p --progress --colors",
+    "build": "webpack -p --colors",
     "start": "webpack-dev-server --mode development --hot --progress --color --port 8080 --open",
     "test": "jest --coverage"
   },
   "jest": {
     "roots": [
-      "<rootDir>/tests"
+      "<rootDir>/src/tests"
     ],
     "collectCoverage": true,
     "coverageDirectory": "<rootDir>/coverage",
@@ -23,7 +23,7 @@
       "!**/*.model.ts"
     ],
     "coveragePathIgnorePatterns": [
-      "/tests/",
+      "/src/tests/",
       "/src/App.tsx"
     ],
     "moduleFileExtensions": [
@@ -31,11 +31,11 @@
       "tsx"
     ],
     "setupFiles": [
-      "<rootDir>/tests/setup.ts"
+      "<rootDir>/src/tests/setup.ts"
     ],
     "moduleNameMapper": {
       "\\.(css|styl|less|sass|scss|svg)$": "identity-obj-proxy",
-      "^src(.*)$": "<rootDir>/src$1"
+      "^app(.*)$": "<rootDir>/src/app$1"
     },
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
@@ -84,9 +84,6 @@
     "style-loader": "^0.23.1",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
-    "tslint": "^5.16.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",
