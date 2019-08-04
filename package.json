@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack -p --colors",
     "start": "webpack-dev-server --mode development --hot --progress --color --port 8080 --open",
-    "test": "jest --coverage"
+    "test": "jest --colors --coverage"
   },
   "jest": {
     "roots": [
@@ -19,7 +19,6 @@
       "**/*.{ts,tsx}",
       "!**/index.ts",
       "!**/*d.{ts}",
-      "!**/styles.ts",
       "!**/*.model.ts"
     ],
     "coveragePathIgnorePatterns": [
@@ -28,7 +27,9 @@
     ],
     "moduleFileExtensions": [
       "ts",
-      "tsx"
+      "tsx",
+      "js",
+      "jsx"
     ],
     "setupFiles": [
       "<rootDir>/src/tests/setup.ts"

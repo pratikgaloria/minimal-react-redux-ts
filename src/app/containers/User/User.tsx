@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { IUserModel, UserModel } from "app/models/user.model";
 import { userLogin, userLogout } from "app/store/user/actions";
 import { getUser } from "app/store/user/selectors";
-import * as styles from './User.scss';
+import * as styles from "./User.scss";
 
 interface IStateToProps {
   user: IUserModel;
@@ -22,9 +22,9 @@ interface IState {
   hasLoggedIn: boolean;
 }
 
-export class User extends React.Component<IProps, IState> {
+export class UserComponent extends React.Component<IProps, IState> {
   state: IState = {
-    name: "",
+    name: '',
     hasLoggedIn: false
   };
 
@@ -34,11 +34,13 @@ export class User extends React.Component<IProps, IState> {
     });
   };
 
-  handleLogin = () => {
+  handleSubmit = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+
     if (this.state.hasLoggedIn) {
       this.setState(
         {
-          name: "",
+          name: '',
           hasLoggedIn: false
         },
         () => {
@@ -53,7 +55,7 @@ export class User extends React.Component<IProps, IState> {
         () => {
           this.props.login(
             new UserModel({
-              id: "1",
+              id: '1',
               name: this.state.name
             })
           );
@@ -68,7 +70,7 @@ export class User extends React.Component<IProps, IState> {
 
     return (
       <div className={styles.root}>
-        <div className={styles.form}>
+        <form onSubmit={this.handleSubmit} className={styles.form}>
           <input
             name="name"
             placeholder="Enter Name"
@@ -76,14 +78,10 @@ export class User extends React.Component<IProps, IState> {
             value={this.state.name}
             onChange={this.handleNameChange}
           />
-          <button onClick={this.handleLogin}>
-            {hasLoggedIn ? `Logout` : `Login`}
-          </button>
-        </div>
-        <div className={styles.message}>
-          {user.name
-            ? `${user.name} has logged in!`
-            : `User has logged out!`}
+          <button type="submit">{hasLoggedIn ? `Logout` : `Login`}</button>
+        </form>
+        <div data-component="login-message" className={styles.message}>
+          {hasLoggedIn ? `${user.name} has logged in!` : `User has logged out!`}
         </div>
       </div>
     );
@@ -102,4 +100,4 @@ const mapDispatchToProps: IDispatchToProps = {
 export default connect<IStateToProps, IDispatchToProps>(
   mapStateToProps,
   mapDispatchToProps
-)(User);
+)(UserComponent);
